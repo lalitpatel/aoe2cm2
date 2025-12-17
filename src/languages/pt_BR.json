@@ -44,6 +44,19 @@
     "Gurjaras": "Os gurjares",
     "Hindustanis": "Hindustânis",
     "Romans": "Romanos",
+    "Armenians": "Armênios",
+    "Georgians": "Georgianos",
+    "Achaemenids": "Aquemênidas",
+    "Athenians": "Atenienses",
+    "Spartans": "Espartanos",
+    "Shu": "Shu",
+    "Wu": "Wu",
+    "Wei": "Wei",
+    "Jurchens": "Jurchéns",
+    "Khitans": "Quitais",
+    "Macedonians": "Macedônios",
+    "Thracians": "Trácios",
+    "Puru": "Puru",
     "HIDDEN_PICK": "",
     "HIDDEN_BAN": "",
     "HIDDEN_SNIPE": "",
@@ -102,7 +115,15 @@
       "AbbasidDynasty": "Banu Abas",
       "French": "Francesa",
       "Ottomans": "Otomana",
-      "Malians": "Malineses"
+      "Malians": "Malineses",
+      "Byzantines": "Bizantinos",
+      "Japanese": "Japonês",
+      "Ayyubids": "Império Aiúbida",
+      "ZhuXiLegacy": "Império de Jade",
+      "JeanneDArc": "Joana D'Arc",
+      "OrderOfTheDragon": "Ordem do Dragão",
+      "HouseOfLancaster": "House of Lancaster",
+      "KnightsTemplar": "Knights Templar"
     }
   },
   "messages": {
@@ -234,7 +255,7 @@
       "reportIssue": {
         "title": "Encontrou algum problema?",
         "github": "Você encontrou ou teve algum problema neste site? Confira aqui a <1>lista de problemas conhecidos no GitHub</1>.",
-        "discord": "Se seu problema não estiver listado lá, relate no GitHub ou descreva-o para <1>hszemi#2325</1> no Discord. Certifique-se de incluir um link para o seu draft, se você tiver um!"
+        "discord": "Se seu problema não estiver listado lá, relate no GitHub ou descreva-o para <1>hszemi</1> no Discord. Certifique-se de incluir um link para o seu draft, se você tiver um!"
       }
     },
     "basics": {
@@ -313,6 +334,7 @@
     "aoe2Maps": "Mapas do AOE2",
     "aoe3Civs": "Civilizações do AoE3",
     "aoe4Civs": "Civilizações do AoE4",
+    "aoe4Maps": "Mapas do AoE4",
     "customOptions": "Personalizado",
     "turns": "Turnos",
     "createSaveDraft": "Crie um Draft ou Salve",

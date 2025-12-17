@@ -4,7 +4,7 @@ import {default as ModelAction} from "../constants/Action";
 import {DraftEvent} from "../types/DraftEvent";
 import {IDraftConfig} from "../types/IDraftConfig";
 import PlayerEvent from "../models/PlayerEvent";
-import {ICountdownValues, IDraftState, IPresetAndDraftList} from "../types";
+import {ICountdownValues, IDraftState, IPresetAndDraftList, IRecentDraft} from "../types";
 import Preset from "../models/Preset";
 import Turn from "../models/Turn";
 import {ColorScheme} from "../constants/ColorScheme";
@@ -175,11 +175,44 @@ export interface ISetEditorDraftOptions {
     value: DraftOption[]
 }
 
+export interface ISetEditorCategoryLimitPick {
+    type: Actions.SET_EDITOR_CATEGORY_LIMIT_PICK
+    key: string
+    value: number | null
+}
+
+export interface ISetEditorCategoryLimitBan {
+    type: Actions.SET_EDITOR_CATEGORY_LIMIT_BAN
+    key: string
+    value: number | null
+}
+
 export interface ISetHighlightedAction {
     type: Actions.SET_HIGHLIGHTED_ACTION,
     value: number | null;
 }
 
+export interface ISpectateDrafts {
+    type: ClientActions.SPECTATE_DRAFTS
+}
+
+export interface IUnspectateDrafts {
+    type: ClientActions.UNSPECTATE_DRAFTS
+}
+
+export interface IResetRecentDraftsCursor {
+    type: ClientActions.RESET_RECENT_DRAFTS_CURSOR
+}
+
+export interface IUpdateDrafts {
+    type: ServerActions.UPDATE_DRAFTS,
+    value: IRecentDraft[]
+}
+
+export interface IRemoveDrafts {
+    type: ServerActions.REMOVE_DRAFTS,
+    value: string[]
+}
 
 export type DraftAction = IConnectPlayer
     | ISetPlayerName
@@ -234,7 +267,15 @@ export type PresetEditorAction = ISetEditorPreset
     | IDuplicateEditorTurn
     | ISetEditorTurnOrder
     | ISetEditorName
-    | ISetEditorDraftOptions;
+    | ISetEditorDraftOptions
+    | ISetEditorCategoryLimitPick
+    | ISetEditorCategoryLimitBan;
+
+export type RecentDraftsAction = ISpectateDrafts
+    | IUnspectateDrafts
+    | IResetRecentDraftsCursor
+    | IUpdateDrafts
+    | IRemoveDrafts;
 
 export type Action = DraftAction
     | ReplayAction
@@ -245,6 +286,7 @@ export type Action = DraftAction
     | ColorSchemeAction
     | ModalAction
     | PresetEditorAction
+    | RecentDraftsAction
     | AdminAction;
 
 export function connectPlayer(player: Player, value: string): IConnectPlayer {
@@ -462,6 +504,22 @@ export function setEditorDraftOptions(value: DraftOption[]): ISetEditorDraftOpti
     }
 }
 
+export function setEditorCategoryLimitPick(key: string, value: number | null): ISetEditorCategoryLimitPick {
+    return {
+        key,
+        value,
+        type: Actions.SET_EDITOR_CATEGORY_LIMIT_PICK
+    }
+}
+
+export function setEditorCategoryLimitBan(key: string, value: number | null): ISetEditorCategoryLimitBan {
+    return {
+        key,
+        value,
+        type: Actions.SET_EDITOR_CATEGORY_LIMIT_BAN
+    }
+}
+
 export function setCountdownValue(value: ICountdownValues): ICountdownEvent {
     return {
         type: ServerActions.SET_COUNTDOWN_VALUE,
@@ -473,5 +531,23 @@ export function setHighlightedAction(value: number | null): ISetHighlightedActio
     return {
         value,
         type: Actions.SET_HIGHLIGHTED_ACTION
+    }
+}
+
+export function spectateDrafts(): ISpectateDrafts {
+    return {
+        type: ClientActions.SPECTATE_DRAFTS
+    }
+}
+
+export function resetRecentDraftCursor(): IResetRecentDraftsCursor {
+    return {
+        type: ClientActions.RESET_RECENT_DRAFTS_CURSOR
+    }
+}
+
+export function unspectateDrafts(): IUnspectateDrafts {
+    return {
+        type: ClientActions.UNSPECTATE_DRAFTS
     }
 }

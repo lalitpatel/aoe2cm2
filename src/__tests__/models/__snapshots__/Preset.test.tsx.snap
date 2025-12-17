@@ -2,13 +2,20 @@
 
 exports[`preset from valid pojo works 1`] = `
 Preset {
+  "categoryLimits": Object {
+    "ban": Object {},
+    "pick": Object {},
+  },
   "draftOptions": undefined,
-  "encodedCivilisations": "1",
+  "encodedCivilisations": "0",
   "name": "some-name",
   "presetId": undefined,
   "turns": Array [
     Turn {
       "action": "PICK",
+      "categories": Array [
+        "default",
+      ],
       "exclusivity": "NONEXCLUSIVE",
       "executingPlayer": "GUEST",
       "hidden": false,

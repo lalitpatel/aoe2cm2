@@ -5,7 +5,7 @@ import Practice from "./Practice";
 import Presets from "./Presets";
 import Preset from "./Preset";
 import Index from "./Index";
-import Spectate from "./Spectate";
+import SpectateRecentDrafts from "../../containers/SpectateRecentDrafts";
 import {Trans, withTranslation, WithTranslation} from "react-i18next";
 import Modal from "../../containers/Modal";
 import PresetEditor from "../PresetEditor/PresetEditor";
@@ -15,6 +15,7 @@ import API from "./API";
 import Login from "../admin/Login";
 import AdminMain from "../admin/AdminMain";
 import DraftList from "../admin/DraftList";
+import DraftEdit from "../admin/DraftEdit";
 
 class Menu extends React.Component<WithTranslation, object> {
     public render() {
@@ -43,12 +44,13 @@ class Menu extends React.Component<WithTranslation, object> {
                         <Route path="/presets" component={Presets}/>
                         <Route path="/preset/create" component={PresetEditor}/>
                         <Route path="/preset/:id" component={Preset}/>
-                        <Route path="/spectate" component={Spectate}/>
+                        <Route path="/spectate" component={SpectateRecentDrafts}/>
                         <Route path="/practice" component={Practice}/>
                         <Route path="/help" component={HowItWorks}/>
                         <Route path="/api" component={API}/>
                         <Route path="/admin/login" component={Login}/>
                         <Route path="/admin/draft/:draftName" component={DraftList}/>
+                        <Route path="/admin/edit-draft/:draftId" component={DraftEdit}/>
                         <Route path="/admin" component={AdminMain}/>
                         <Route component={NotFound404}/>
                     </Switch>

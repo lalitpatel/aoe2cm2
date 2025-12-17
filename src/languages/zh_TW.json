@@ -43,7 +43,20 @@
     "Dravidians": "達羅毗荼",
     "Gurjaras": "瞿折羅",
     "Hindustanis": "印度斯坦",
-    "Romans": "羅馬人",
+    "Romans": "羅馬",
+    "Armenians": "亞美尼亞",
+    "Georgians": "喬治亞",
+    "Achaemenids": "阿契美尼德",
+    "Athenians": "雅典",
+    "Spartans": "斯巴達",
+    "Shu": "蜀國",
+    "Wu": "吳國",
+    "Wei": "魏國",
+    "Jurchens": "女真",
+    "Khitans": "契丹",
+    "Macedonians": "馬其頓",
+    "Thracians": "色雷斯",
+    "Puru": "波魯",
     "HIDDEN_PICK": "",
     "HIDDEN_BAN": "",
     "HIDDEN_SNIPE": "",
@@ -101,8 +114,16 @@
       "Mongols": "蒙古人",
       "AbbasidDynasty": "阿拔斯王朝",
       "French": "法蘭西人",
-      "Ottomans": "鄂圖曼土耳其",
-      "Malians": "馬利"
+      "Ottomans": "鄂圖曼人",
+      "Malians": "馬利人",
+      "Byzantines": "拜占庭人",
+      "Japanese": "日本人",
+      "Ayyubids": "阿育布人",
+      "ZhuXiLegacy": "朱熹對後世的影響",
+      "JeanneDArc": "聖女貞德",
+      "OrderOfTheDragon": "龍騎士團",
+      "HouseOfLancaster": "蘭卡斯特家族",
+      "KnightsTemplar": "聖殿騎士團"
     }
   },
   "messages": {
@@ -234,7 +255,7 @@
       "reportIssue": {
         "title": "發現了問題嗎？",
         "github": "您有在網站上發現問題嗎？查看 <1>GitHub上的Issues頁</1>.",
-        "discord": "如果您發現的問題沒有被列出，在GitHub上反饋，或者在Discord上私聊 <1>hszemi#2325</1> 。如果有BP鏈接的話，儘量附上鍊接。"
+        "discord": "如果您發現的問題沒有被列出，在GitHub上反饋，或者在Discord上私聊 <1>hszemi</1> 。如果有BP鏈接的話，儘量附上鍊接。"
       }
     },
     "basics": {
@@ -313,6 +334,7 @@
     "aoe2Maps": "世紀2地圖",
     "aoe3Civs": "世紀3文明",
     "aoe4Civs": "世紀4文明",
+    "aoe4Maps": "世紀4地圖",
     "customOptions": "自訂選項",
     "turns": "回合",
     "createSaveDraft": "建立或保存",

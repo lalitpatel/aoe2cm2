@@ -43,7 +43,20 @@
     "Dravidians": "达罗毗荼",
     "Gurjaras": "瞿折罗",
     "Hindustanis": "印度斯坦",
-    "Romans": "罗马人",
+    "Romans": "罗马",
+    "Armenians": "亚美尼亚",
+    "Georgians": "格鲁吉亚",
+    "Achaemenids": "阿契美尼德",
+    "Athenians": "雅典",
+    "Spartans": "斯巴达",
+    "Shu": "蜀",
+    "Wu": "吴",
+    "Wei": "魏",
+    "Jurchens": "女真",
+    "Khitans": "契丹",
+    "Macedonians": "马其顿",
+    "Thracians": "色雷斯",
+    "Puru": "普鲁",
     "HIDDEN_PICK": "",
     "HIDDEN_BAN": "",
     "HIDDEN_SNIPE": "",
@@ -102,7 +115,15 @@
       "AbbasidDynasty": "阿拔斯",
       "French": "法国",
       "Ottomans": "奥斯曼土耳其",
-      "Malians": "马里"
+      "Malians": "马里",
+      "Byzantines": "拜占庭",
+      "Japanese": "日语",
+      "Ayyubids": "苏丹的军队",
+      "ZhuXiLegacy": "翡翠帝国",
+      "JeanneDArc": "圣女贞德",
+      "OrderOfTheDragon": "龙之骑士团",
+      "HouseOfLancaster": "兰开斯特家族",
+      "KnightsTemplar": "圣殿骑士团"
     }
   },
   "messages": {
@@ -181,8 +202,8 @@
   "HOST": "主机",
   "GUEST": "受邀者",
   "you": "自己",
-  "Picks": "选民族",
-  "Bans": "禁民族",
+  "Picks": "选",
+  "Bans": "禁",
   "Start": "开始",
   "End": "结束",
   "<0></0>PICK": "<0></0>选",
@@ -234,7 +255,7 @@
       "reportIssue": {
         "title": "发现了问题吗？",
         "github": "您有在网站上发现问题吗？查看 <1>GitHub上的Issues页</1>.",
-        "discord": "如果您发现的问题没有被列出，在GitHub上反馈，或者在Discord上私聊 <1>hszemi#2325</1> 。如果有BP链接的话，尽量附上链接。"
+        "discord": "如果您发现的问题没有被列出，在GitHub上反馈，或者在Discord上私聊 <1>hszemi</1> 。如果有BP链接的话，尽量附上链接。"
       }
     },
     "basics": {
@@ -313,6 +334,7 @@
     "aoe2Maps": "帝国2地图",
     "aoe3Civs": "帝国3民族",
     "aoe4Civs": "帝国4民族",
+    "aoe4Maps": "帝国4地图",
     "customOptions": "自定义选项",
     "turns": "轮次",
     "createSaveDraft": "建立或保存",

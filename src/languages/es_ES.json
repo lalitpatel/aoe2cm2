@@ -36,7 +36,7 @@
     "Lithuanians": "Lituanos",
     "Tatars": "Tártaros",
     "Burgundians": "Borgoñones",
-    "Sicilians": "Silicianos",
+    "Sicilians": "Sicilianos",
     "Bohemians": "Bohemios",
     "Poles": "Polacos",
     "Bengalis": "Bengalíes",
@@ -44,6 +44,19 @@
     "Gurjaras": "Gurjara",
     "Hindustanis": "Indostanos",
     "Romans": "Romanos",
+    "Armenians": "Armenios",
+    "Georgians": "Georgianos",
+    "Achaemenids": "Aqueménidas",
+    "Athenians": "Atenienses",
+    "Spartans": "Espartanos",
+    "Shu": "Shu",
+    "Wu": "Wu",
+    "Wei": "Wei",
+    "Jurchens": "Yurchen",
+    "Khitans": "Kitán",
+    "Macedonians": "Macedonios",
+    "Thracians": "Tracios",
+    "Puru": "Purus",
     "HIDDEN_PICK": "",
     "HIDDEN_BAN": "",
     "HIDDEN_SNIPE": "",
@@ -91,6 +104,26 @@
       "Mexico": "méxico",
       "Italian": "italiano",
       "Maltese": "maltés"
+    },
+    "aoe4": {
+      "Rus": "Rus",
+      "HolyRomanEmpire": "Sacro Imperio Romano Germánico",
+      "Chinese": "Chinos",
+      "English": "Inglés",
+      "DelhiSultanate": "Sultanato de Delhi",
+      "Mongols": "Mongoles",
+      "AbbasidDynasty": "Dinastía abasí",
+      "French": "Franceses",
+      "Ottomans": "Otomanos",
+      "Malians": "Malienses",
+      "Byzantines": "Bizantinos",
+      "Japanese": "Japonés",
+      "Ayyubids": "Dinastía ayubí",
+      "ZhuXiLegacy": "Imperio de jade",
+      "JeanneDArc": "Juana de Arco",
+      "OrderOfTheDragon": "Orden del Dragón",
+      "HouseOfLancaster": "House of Lancaster",
+      "KnightsTemplar": "Knights Templar"
     }
   },
   "messages": {
@@ -222,7 +255,7 @@
       "reportIssue": {
         "title": "Has encontrado un bug?",
         "github": "Has encontrado o experimentado problemas en este sitio? Fijate la <1>lista de problemas investigados en GitHub</1>.",
-        "discord": "Si tu problema no se encuentra ahí, reportalo en el repositorio de SiegeEngineers/aoe2cm2 en GitHub o escribele a <1>hszemi#2325</1> en Discord. Asegúrate de incluir el link a tu Draft/Borrador si es que el problema se encuentra ahí!"
+        "discord": "Si tu problema no se encuentra ahí, reportalo en el repositorio de SiegeEngineers/aoe2cm2 en GitHub o escribele a <1>hszemi</1> en Discord. Asegúrate de incluir el link a tu Draft/Borrador si es que el problema se encuentra ahí!"
       }
     },
     "basics": {
@@ -301,6 +334,7 @@
     "aoe2Maps": "Mapas AOE2",
     "aoe3Civs": "Civilizaciones AoE3",
     "aoe4Civs": "Civilizaciones AoE4",
+    "aoe4Maps": "Mapas AoE4",
     "customOptions": "Personalizado",
     "turns": "Turnos",
     "createSaveDraft": "Crear Draft o Guardar",

@@ -179,6 +179,31 @@ export class PresetValidation {
         return true;
     });
 
+
+    public static readonly VLD_916: PresetValidation = new PresetValidation(ValidationId.VLD_916, (preset: Preset) => {
+        let draftOptionCategories: string[] = preset.options.map(value => value.category);
+        let turnCategories: string[] = [];
+        turnCategories = turnCategories.concat(...preset.turns.map(value => value.categories));
+        return turnCategories.every(value => draftOptionCategories.includes(value));
+    });
+
+
+    public static readonly VLD_917: PresetValidation = new PresetValidation(ValidationId.VLD_917, (preset: Preset) => {
+        let draftOptionCategories: string[] = preset.options.map(value => value.category);
+        let turnCategories: string[] = [];
+        turnCategories = turnCategories.concat(...preset.turns.map(value => value.categories));
+        return draftOptionCategories.every(value => turnCategories.includes(value));
+    });
+
+    public static readonly VLD_918: PresetValidation = new PresetValidation(ValidationId.VLD_918, (preset: Preset) => {
+        let categoryLimitsCategories: string[] = Object.keys(preset.categoryLimits.pick);
+        categoryLimitsCategories = categoryLimitsCategories.concat(Object.keys(preset.categoryLimits.ban));
+        let turnCategories: string[] = [];
+        turnCategories = turnCategories.concat(...preset.turns.map(value => value.categories));
+        return categoryLimitsCategories.every(value => turnCategories.includes(value));
+    });
+
+
     public static readonly ALL: PresetValidation[] = [
         PresetValidation.VLD_901,
         PresetValidation.VLD_902,
@@ -195,6 +220,9 @@ export class PresetValidation {
         PresetValidation.VLD_913,
         PresetValidation.VLD_914,
         PresetValidation.VLD_915,
+        PresetValidation.VLD_916,
+        PresetValidation.VLD_917,
+        PresetValidation.VLD_918,
     ];
 
     private readonly validationId: ValidationId;

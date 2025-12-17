@@ -55,6 +55,23 @@ enum Name {
     HINDUSTANIS = "Hindustanis",
 
     ROMANS = "Romans",
+
+    ARMENIANS = "Armenians",
+    GEORGIANS = "Georgians",
+
+    ACHAEMENIDS = "Achaemenids",
+    ATHENIANS = "Athenians",
+    SPARTANS = "Spartans",
+
+    SHU="Shu",
+    WU="Wu",
+    WEI="Wei",
+    JURCHENS="Jurchens",
+    KHITANS="Khitans",
+
+    MACEDONIANS = "Macedonians",
+    THRACIANS = "Thracians",
+    PURU = "Puru",
 }
 
 class Civilisation extends DraftOption {
@@ -113,6 +130,23 @@ class Civilisation extends DraftOption {
 
     public static readonly ROMANS: Civilisation = new Civilisation(Name.ROMANS, GameVersion.RETURN_OF_ROME);
 
+    public static readonly ARMENIANS: Civilisation = new Civilisation(Name.ARMENIANS, GameVersion.THE_MOUNTAIN_ROYALS);
+    public static readonly GEORGIANS: Civilisation = new Civilisation(Name.GEORGIANS, GameVersion.THE_MOUNTAIN_ROYALS);
+
+    public static readonly ACHAEMENIDS: Civilisation = new Civilisation(Name.ACHAEMENIDS, GameVersion.CHRONICLES_BATTLE_FOR_GREECE);
+    public static readonly ATHENIANS: Civilisation = new Civilisation(Name.ATHENIANS, GameVersion.CHRONICLES_BATTLE_FOR_GREECE);
+    public static readonly SPARTANS: Civilisation = new Civilisation(Name.SPARTANS, GameVersion.CHRONICLES_BATTLE_FOR_GREECE);
+
+    public static readonly SHU: Civilisation = new Civilisation(Name.SHU, GameVersion.THE_THREE_KINGDOMS);
+    public static readonly WU: Civilisation = new Civilisation(Name.WU, GameVersion.THE_THREE_KINGDOMS);
+    public static readonly WEI: Civilisation = new Civilisation(Name.WEI, GameVersion.THE_THREE_KINGDOMS);
+    public static readonly JURCHENS: Civilisation = new Civilisation(Name.JURCHENS, GameVersion.THE_THREE_KINGDOMS);
+    public static readonly KHITANS: Civilisation = new Civilisation(Name.KHITANS, GameVersion.THE_THREE_KINGDOMS);
+
+    public static readonly MACEDONIANS: Civilisation = new Civilisation(Name.MACEDONIANS, GameVersion.CHRONICLES_ALEXANDER_THE_GREAT);
+    public static readonly THRACIANS: Civilisation = new Civilisation(Name.THRACIANS, GameVersion.CHRONICLES_ALEXANDER_THE_GREAT);
+    public static readonly PURU: Civilisation = new Civilisation(Name.PURU, GameVersion.CHRONICLES_ALEXANDER_THE_GREAT);
+
 
     // DO NOT CHANGE THE ORDER OF ELEMENTS IN THIS ARRAY!!!
     // ONLY APPEND NEW CIVILISATIONS AT THE END!!!
@@ -161,9 +195,25 @@ class Civilisation extends DraftOption {
         Civilisation.GURJARAS,
         Civilisation.HINDUSTANIS,
         Civilisation.ROMANS,
+        Civilisation.ARMENIANS,
+        Civilisation.GEORGIANS,
+        Civilisation.ACHAEMENIDS,
+        Civilisation.ATHENIANS,
+        Civilisation.SPARTANS,
+        Civilisation.SHU,
+        Civilisation.WU,
+        Civilisation.WEI,
+        Civilisation.JURCHENS,
+        Civilisation.KHITANS,
+        Civilisation.MACEDONIANS,
+        Civilisation.THRACIANS,
+        Civilisation.PURU,
     ];
 
-    public static readonly ALL_ACTIVE = Civilisation.ALL.filter(value => value.name !== Name.INDIANS);
+    public static readonly ALL_ACTIVE = Civilisation.ALL.filter(value => value.name !== Name.INDIANS
+        && value.gameVersion != GameVersion.CHRONICLES_BATTLE_FOR_GREECE
+        && value.gameVersion != GameVersion.CHRONICLES_ALEXANDER_THE_GREAT
+    );
 
     public readonly gameVersion: GameVersion;
 

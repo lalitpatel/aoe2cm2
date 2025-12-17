@@ -19,12 +19,11 @@ it('vikings only yields 2^30', () => {
     expect(encoded).toEqual('40000000');
 });
 
-it('all 43+1 civs yield 2^44-1', () => {
+it('all 57 civs yield 2^57-1', () => {
     const encoded = CivilisationEncoder.encodeCivilisationArray(Civilisation.ALL);
-    expect(Civilisation.ALL.length).toEqual(43+1);
-    expect(Civilisation.ALL_ACTIVE.length).toEqual(43);
-    expect(encoded).toEqual(CivilisationEncoder.toHexString(Math.pow(2, 44) - 1));
-    expect(encoded).toEqual('fffffffffff');
+    expect(Civilisation.ALL.length).toEqual(57);
+    expect(Civilisation.ALL_ACTIVE.length).toEqual(50);
+    expect(encoded).toEqual('1ffffffffffffff');
 });
 
 it('decode 0 yields empty array', () => {
@@ -44,8 +43,8 @@ it('decode 2^30 yields vikings', () => {
 
 });
 
-it('decode 2^44-1 yields all civs', () => {
-    const decoded = CivilisationEncoder.decodeCivilisationArray('fffffffffff');
+it('decode 2^57-1 yields all civs', () => {
+    const decoded = CivilisationEncoder.decodeCivilisationArray('1ffffffffffffff');
     expect(decoded).toEqual([...Civilisation.ALL].sort((a, b) => a.name.localeCompare(b.name)));
 });
 
@@ -58,6 +57,7 @@ it('assert order of civilisations has not changed', () => {
     expect(Civilisation.ALL).toMatchSnapshot();
 });
 
+
 describe('The decoding shortcut does not lie', () => {
     it.each`
     civilisationArray | expectedLength
@@ -67,8 +67,29 @@ describe('The decoding shortcut does not lie', () => {
     ${'7ffffffffff'}   | ${43}
     ${'7ffffffefff'}   | ${42}
     ${'fffffffefff'}   | ${43}
+    ${'3fffffffefff'}   | ${45}
+    ${'1ffffffffefff'}   | ${48}
+    ${'3e3fffffffefff'}   | ${50}
   `('$civilisationArray', ({civilisationArray, expectedLength}) => {
         const decoded = CivilisationEncoder.decodeCivilisationArray(civilisationArray);
         expect(decoded.length).toEqual(expectedLength);
+    });
+});
+
+describe('toBits works well', () => {
+    it.each`
+    encoded | result
+    ${''}    | ${[]}
+    ${'1'}    | ${[true]}
+    ${'2'}    | ${[true, false]}
+    ${'3'}    | ${[true, true]}
+    ${'4'}    | ${[true, false, false]}
+    ${'8'}    | ${[true, false, false, false]}
+    ${'f'}    | ${[true, true, true, true]}
+    ${'3f'}    | ${[true, true, true, true, true, true]}
+    ${'ff'}    | ${[true, true, true, true, true, true, true, true]}
+  `('$civilisationArray', ({encoded, result}) => {
+        const bits = CivilisationEncoder.toBits(encoded);
+        expect(bits).toEqual(result);
     });
 });

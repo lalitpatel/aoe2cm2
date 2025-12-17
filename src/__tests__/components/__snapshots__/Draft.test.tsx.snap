@@ -11,13 +11,20 @@ exports[`Draft renders correctly 1`] = `
   ownName=""
   preset={
     Preset {
+      "categoryLimits": Object {
+        "ban": Object {},
+        "pick": Object {},
+      },
       "draftOptions": undefined,
-      "encodedCivilisations": "fffffffefff",
+      "encodedCivilisations": "3e3fffffffefff",
       "name": "Default Preset",
       "presetId": undefined,
       "turns": Array [
         Turn {
           "action": "BAN",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "HOST",
           "hidden": false,
@@ -27,6 +34,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "BAN",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "GUEST",
           "hidden": false,
@@ -36,6 +46,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "BAN",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -45,6 +58,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "BAN",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -54,6 +70,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "REVEAL_ALL",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "NONE",
           "hidden": false,
@@ -63,6 +82,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "HOST",
           "hidden": false,
@@ -72,6 +94,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "GUEST",
           "hidden": false,
@@ -81,6 +106,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "EXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": false,
@@ -90,6 +118,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "EXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": false,
@@ -99,6 +130,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -108,6 +142,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -117,6 +154,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -126,6 +166,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -135,6 +178,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -144,6 +190,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -153,6 +202,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -162,6 +214,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "PICK",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -171,6 +226,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "REVEAL_ALL",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "NONE",
           "hidden": false,
@@ -180,6 +238,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "SNIPE",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "HOST",
           "hidden": true,
@@ -189,6 +250,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "SNIPE",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "NONEXCLUSIVE",
           "executingPlayer": "GUEST",
           "hidden": true,
@@ -198,6 +262,9 @@ exports[`Draft renders correctly 1`] = `
         },
         Turn {
           "action": "REVEAL_ALL",
+          "categories": Array [
+            "default",
+          ],
           "exclusivity": "GLOBAL",
           "executingPlayer": "NONE",
           "hidden": false,

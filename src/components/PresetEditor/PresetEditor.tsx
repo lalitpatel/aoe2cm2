@@ -6,6 +6,8 @@ import {Dispatch} from "redux";
 import * as actions from "../../actions";
 import {
     IDuplicateEditorTurn,
+    ISetEditorCategoryLimitBan,
+    ISetEditorCategoryLimitPick,
     ISetEditorDraftOptions,
     ISetEditorName,
     ISetEditorPreset,
@@ -33,6 +35,8 @@ import {RouteComponentProps} from "react-router";
 import CivilisationSet from "../../models/CivilisationSet";
 import Aoe2Map from "../../models/Aoe2Map";
 import Aoe1Civilisation from "../../models/Aoe1Civilisation";
+import Aoe4Map from "../../models/Aoe4Map";
+import AomGod from "../../models/AomGod";
 
 interface Props extends WithTranslation, RouteComponentProps<any> {
     preset: Preset | null,
@@ -42,6 +46,8 @@ interface Props extends WithTranslation, RouteComponentProps<any> {
     onTurnOrderChange: (turns: Turn[]) => ISetEditorTurnOrder,
     onPresetNameChange: (value: string) => ISetEditorName,
     onPresetDraftOptionsChange: (value: DraftOption[]) => ISetEditorDraftOptions
+    onSetCategoryLimitPick: (key: string, value: number | null) => ISetEditorCategoryLimitPick
+    onSetCategoryLimitBan: (key: string, value: number | null) => ISetEditorCategoryLimitBan
 }
 
 interface State {
@@ -76,6 +82,12 @@ class PresetEditor extends React.Component<Props, State> {
             case CivilisationSet.AOE4:
                 this.setState({defaultDraftOptions: Aoe4Civilisation.ALL, activeCivilisationSet: CivilisationSet.AOE4});
                 break;
+            case CivilisationSet.AOE4MAPS:
+                this.setState({defaultDraftOptions: Aoe4Map.ALL, activeCivilisationSet: CivilisationSet.AOE4MAPS});
+                break;
+            case CivilisationSet.AOMGODS:
+                this.setState({defaultDraftOptions: AomGod.ALL, activeCivilisationSet: CivilisationSet.AOMGODS});
+                break;
             case CivilisationSet.CUSTOM:
                 this.setState({defaultDraftOptions: [], activeCivilisationSet: CivilisationSet.CUSTOM});
                 break;
@@ -98,6 +110,12 @@ class PresetEditor extends React.Component<Props, State> {
                     break;
                 case CivilisationSet.AOE4:
                     this.props.onPresetDraftOptionsChange([...Aoe4Civilisation.ALL]);
+                    break;
+                case CivilisationSet.AOE4MAPS:
+                    this.props.onPresetDraftOptionsChange([]);
+                    break;
+                case CivilisationSet.AOMGODS:
+                    this.props.onPresetDraftOptionsChange([...AomGod.ALL]);
                     break;
                 case CivilisationSet.CUSTOM:
                     this.configureSampleDraftOption();
@@ -126,6 +144,10 @@ class PresetEditor extends React.Component<Props, State> {
                     return CivilisationSet.AOE3;
                 } else if (draftOptions.every(draftOption => Aoe4Civilisation.ALL.some(aoe4civ => DraftOption.equals(draftOption, aoe4civ)))) {
                     return CivilisationSet.AOE4;
+                } else if (draftOptions.every(draftOption => Aoe4Map.ALL.some(aoe4map => DraftOption.equals(draftOption, aoe4map)))) {
+                    return CivilisationSet.AOE4MAPS;
+                } else if (draftOptions.every(draftOption => AomGod.ALL.some(aomgod => DraftOption.equals(draftOption, aomgod)))) {
+                    return CivilisationSet.AOMGODS;
                 } else {
                     return CivilisationSet.CUSTOM;
                 }
@@ -149,6 +171,18 @@ class PresetEditor extends React.Component<Props, State> {
 
         const customOptions: boolean = this.state.defaultDraftOptions.length === 0;
         let optionsSelection = customOptions ? <PresetEditorCustomOptions/> : <PresetEditorCivSelection availableOptions={this.state.defaultDraftOptions}/>;
+
+        const categories = [...new Set(this.props.preset.options.map(value => value.category))].sort();
+        const categoryInputsPick = categories.map(category => <li>{category}: <input type="number"
+                                                                                     value={this.props.preset?.categoryLimits.pick[category]}
+                                                                                     onChange={event => this.props.onSetCategoryLimitPick(category, parseInt(event.target.value) || null)}
+                                                                                     key={'categoryInputsBan-' + category}/>
+        </li>);
+        const categoryInputsBan = categories.map(category => <li>{category}: <input type="number"
+                                                                                    value={this.props.preset?.categoryLimits.ban[category]}
+                                                                                    onChange={event => this.props.onSetCategoryLimitBan(category, parseInt(event.target.value) || null)}
+                                                                                    key={'categoryInputsBan-' + category}/>
+        </li>);
 
         return (
             <React.Fragment>
@@ -207,9 +241,31 @@ class PresetEditor extends React.Component<Props, State> {
                                         defaultDraftOptions: Aoe4Civilisation.ALL,
                                         activeCivilisationSet: CivilisationSet.AOE4
                                     });
-                                    this.props.onPresetDraftOptionsChange([...Aoe4Civilisation.ALL]);
+                                    this.props.onPresetDraftOptionsChange([...Aoe4Civilisation.ALL_ACTIVE]);
                                 }}>
                                     <Trans i18nKey="presetEditor.aoe4Civs">AoE4 civs</Trans>
+                                </a>
+                            </li>
+                            <li className={this.state.activeCivilisationSet === CivilisationSet.AOE4MAPS ? "is-active" : ""}>
+                                <a href="#aoe4maps" onClick={() => {
+                                    this.setState({
+                                        defaultDraftOptions: Aoe4Map.ALL,
+                                        activeCivilisationSet: CivilisationSet.AOE4MAPS
+                                    });
+                                    this.props.onPresetDraftOptionsChange([]);
+                                }}>
+                                    <Trans i18nKey="presetEditor.aoe4Maps">AoE4 Maps</Trans>
+                                </a>
+                            </li>
+                            <li className={this.state.activeCivilisationSet === CivilisationSet.AOMGODS ? "is-active" : ""}>
+                                <a href="#aomgods" onClick={() => {
+                                    this.setState({
+                                        defaultDraftOptions: AomGod.ALL,
+                                        activeCivilisationSet: CivilisationSet.AOMGODS
+                                    });
+                                    this.props.onPresetDraftOptionsChange([...AomGod.ALL]);
+                                }}>
+                                    <Trans i18nKey="presetEditor.aomgods">AoM Gods</Trans>
                                 </a>
                             </li>
                             <li className={this.state.activeCivilisationSet === CivilisationSet.CUSTOM ? "is-active" : ""}>
@@ -291,7 +347,24 @@ class PresetEditor extends React.Component<Props, State> {
                         </div>
                     </div>
                     <hr/>
-                    <h3>3. <Trans i18nKey="presetEditor.createSaveDraft">Create Draft or Save</Trans></h3>
+
+                    <h3>3. <Trans i18nKey="presetEditor.categoryLimits">Category Limits</Trans></h3>
+                    <p><Trans i18nKey="presetEditor.categoryLimitsExplanation">Here you may, for each category,
+                        define a maximum number of times Draft Options from it can be picked or banned.
+                        Leave the input emtpy to set no limit for a category.</Trans></p>
+                    <div className="columns">
+                        <div className="column">
+                            <h4><Trans i18nKey="presetEditor.categoryLimitsPick">Pick</Trans></h4>
+                            <ul>{categoryInputsPick}</ul>
+                        </div>
+                        <div className="column">
+                            <h4><Trans i18nKey="presetEditor.categoryLimitsBan">Ban</Trans></h4>
+                            <ul>{categoryInputsBan}</ul>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <h3>4. <Trans i18nKey="presetEditor.createSaveDraft">Create Draft or Save</Trans></h3>
                     <div className="field is-grouped">
                         <p className="control">
                             <input type={'text'} value={this.props.preset.name} className="input"
@@ -343,6 +416,8 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.Action>) {
         onTurnOrderChange: (turns: Turn[]) => dispatch(actions.setEditorTurnOrder(turns)),
         onPresetDraftOptionsChange: (value: DraftOption[]) => dispatch(actions.setEditorDraftOptions(value)),
         onPresetNameChange: (value: string) => dispatch(actions.setEditorName(value)),
+        onSetCategoryLimitPick: (key: string, value: number | null) => dispatch(actions.setEditorCategoryLimitPick(key, value)),
+        onSetCategoryLimitBan: (key: string, value: number | null) => dispatch(actions.setEditorCategoryLimitBan(key, value)),
     }
 }
 

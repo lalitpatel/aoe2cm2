@@ -37,6 +37,7 @@ class Turn {
     public static readonly REVEAL_BANS = new Turn(Player.NONE, Action.REVEAL_BANS, Exclusivity.GLOBAL);
     public static readonly REVEAL_SNIPES = new Turn(Player.NONE, Action.REVEAL_SNIPES, Exclusivity.GLOBAL);
     public static readonly REVEAL_ALL = new Turn(Player.NONE, Action.REVEAL_ALL, Exclusivity.GLOBAL);
+    public static readonly PAUSE = new Turn(Player.NONE, Action.PAUSE, Exclusivity.GLOBAL);
 
 
     public readonly player: Player;
@@ -46,15 +47,17 @@ class Turn {
     public readonly parallel: boolean;
     public readonly executingPlayer: Player;
     public readonly id: string;
+    public readonly categories: string[];
 
-    constructor(player: Player, action: Action, exclusivity: Exclusivity, hidden: boolean = false, parallel: boolean = false, executingPlayer: Player = player) {
-        this.id = uuidv4();
+    constructor(player: Player, action: Action, exclusivity: Exclusivity, hidden: boolean = false, parallel: boolean = false, executingPlayer: Player = player, categories: string[] = ['default'], id: string = uuidv4()) {
+        this.id = id;
         this.player = player;
         this.action = action;
         this.exclusivity = exclusivity;
         this.hidden = hidden;
         this.executingPlayer = executingPlayer;
         this.parallel = parallel;
+        this.categories = categories;
     }
 
     static fromPojoArray(turns: Turn[]) {
@@ -66,7 +69,8 @@ class Turn {
             Assert.isExclusivity(turn.exclusivity);
             Assert.isBoolean(turn.hidden);
             Assert.isBoolean(turn.parallel);
-            retval.push(new Turn(turn.player, turn.action, turn.exclusivity, turn.hidden, turn.parallel, turn.executingPlayer));
+            Assert.isOptionalStringArray(turn.categories);
+            retval.push(new Turn(turn.player, turn.action, turn.exclusivity, turn.hidden, turn.parallel, turn.executingPlayer, turn.categories, turn.id));
         }
         return retval;
     }

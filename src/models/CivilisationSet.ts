@@ -4,6 +4,8 @@ enum CivilisationSet {
     AOE2MAPS = "aoe2maps",
     AOE3 = "aoe3",
     AOE4 = "aoe4",
+    AOE4MAPS = "aoe4maps",
+    AOMGODS = "aomgods",
     CUSTOM = "custom"
 }
 

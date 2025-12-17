@@ -79,8 +79,16 @@ class DraftViews {
                 this.hostEvents.push(specMessage);
             }
             if (draftEvent.executingPlayer === Player.NONE) {
-                this.guestEvents.push(draftEvent);
-                this.hostEvents.push(draftEvent);
+                if (draftEvent.player === Player.HOST) {
+                    this.hostEvents.push(draftEvent);
+                    this.guestEvents.push(specMessage);
+                } else if (draftEvent.player === Player.GUEST) {
+                    this.guestEvents.push(draftEvent);
+                    this.hostEvents.push(specMessage);
+                } else {
+                    this.guestEvents.push(draftEvent);
+                    this.hostEvents.push(draftEvent);
+                }
             }
         } else {
             this.hostEvents.push(draftEvent);
@@ -125,6 +133,9 @@ class DraftViews {
                 break;
             case Action.REVEAL_SNIPES:
                 this.doReveal(ActionType.SNIPE);
+                break;
+            case Action.PAUSE:
+            case Action.RESET_CL:
                 break;
             default:
                 throw new Error('Illegal/Unknown Action: ' + action);
